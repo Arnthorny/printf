@@ -41,7 +41,7 @@ int _printf(const char *format, ...)
 					c[0] = format[i];
 					strcat(str, c);
 				}
-				if (format[i + 1] = 'r')
+				if (format[i + 1] == 'r')
 				{
 					c[0] = format[i];
 					strcat(str, c);
