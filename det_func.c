@@ -49,7 +49,20 @@ var_str *check_sp(const char *format, va_list args)
 	int i = 1, index;
 	var_str *f;
 
-	while (format && format[i])
+	index = isValid(format[i]);
+	if (index >= 0)
+	{
+		f = malloc(sizeof(var_str));
+		if (!f)
+			exit(98);
+		f->i = i;
+		f->string = ret_func(index)(args);
+		return (f);
+	}
+	else
+		return (NULL);
+	/**
+	*while (format && format[i])
 	{
 		index = isValid(format[i]);
 		if (index >= 0)
@@ -67,5 +80,5 @@ var_str *check_sp(const char *format, va_list args)
 		i++;
 	}
 	return (NULL);
-
+	*/
 }

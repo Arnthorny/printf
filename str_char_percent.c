@@ -7,7 +7,7 @@
  */
 char *print_char(va_list arg)
 {
-	char c = va_arg(arg, int);
+	char c = (char) va_arg(arg, int);
 	char *str = malloc(sizeof(*str) + 1);
 
 	if (!str)
