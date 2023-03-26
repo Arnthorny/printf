@@ -10,12 +10,11 @@ int _printf(const char *format, ...)
 	va_list args;
 	int i = 0, size;
 	var_str *sp_var;
-	char c[1] = {0}, *buf;
+	char c[1] = {0};
 
-	buf = malloc(BUF_SIZE);
-	if (!buf)
+	if (!format)
 		return (-1);
-	buf[0] = '\0';
+
 	va_start(args, format);
 
 	while (format[i] && format)
@@ -25,7 +24,8 @@ int _printf(const char *format, ...)
 			sp_var = check_sp(&format[i], args);
 			if (sp_var && sp_var->string)
 			{
-				strcat(buf, sp_var->string);
+				write(1, sp_var->string, strlen(sp_var->string));
+				size += strlen(sp_var->string);
 				i += (sp_var->i + 1);
 				free(sp_var->string);
 				free(sp_var);
@@ -33,12 +33,10 @@ int _printf(const char *format, ...)
 			}
 		}
 		c[0] = format[i];
-		strcat(buf, c);
+		write(1, c, 1);
+		size++;
 		i++;
 	}
 	va_end(args);
-
-	size = write(1, buf, strlen(buf));
-	free(buf);
 	return (size);
 }
