@@ -59,7 +59,7 @@ var_str *check_sp(const char *format, va_list args)
 		if (!f->string)
 		{
 			free(f);
-			exit(-1);
+			exit (-1);
 		}
 		return (f);
 	}
