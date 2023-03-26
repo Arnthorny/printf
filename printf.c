@@ -8,9 +8,9 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i = 0, size;
+	int i = 0, size = 0;
 	var_str *sp_var;
-	char c[1] = {0};
+	char c[2] = {0};
 
 	if (!format)
 		return (-1);

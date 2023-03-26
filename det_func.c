@@ -14,14 +14,13 @@ specifier_func ret_func(int i)
 		{'%', print_percent},
 		{'\0', NULL},
 	};
-
 	return (all_spe[i].func);
 }
 
 /**
  * isValid - This function checks if a given char is a valid format specifier
  * @c: The char to be checked
- * Return: -1 if not a valid specifier else its index in the struct in ret_func
+ * Return: -1 if not a valid specifier else its index in the struct of ret_func
  */
 
 int isValid(char c)
@@ -54,13 +53,17 @@ var_str *check_sp(const char *format, va_list args)
 	{
 		f = malloc(sizeof(var_str));
 		if (!f)
-			exit(98);
+			return (NULL);
 		f->i = i;
 		f->string = ret_func(index)(args);
+		if (!f->string)
+		{
+			free(f);
+			exit (-1);
+		}
 		return (f);
 	}
-	else
-		return (NULL);
+	return (NULL);
 	/**
 	*while (format && format[i])
 	{

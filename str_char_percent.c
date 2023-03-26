@@ -11,7 +11,7 @@ char *print_char(va_list arg)
 	char *str = malloc(sizeof(*str) + 1);
 
 	if (!str)
-		exit(98);
+		return (NULL);
 	str[0] = c;
 	str[1] = '\0';
 
@@ -29,7 +29,7 @@ char *print_string(va_list arg)
 	char *strC = malloc(sizeof(*strC) * (strlen(str) + 1));
 
 	if (!strC)
-		exit(98);
+		return (NULL);
 	strC = strcpy(strC, str);
 
 	return (strC);
@@ -45,7 +45,7 @@ char *print_percent(__attribute__((unused))va_list arg)
 	char *str = malloc(sizeof(*str) + 1);
 
 	if (!str)
-		exit(98);
+		return (NULL);
 	str[0] = '%';
 	str[1] = '\0';
 	return (str);
