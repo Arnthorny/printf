@@ -12,15 +12,12 @@ int _printf(const char *format, ...)
 	var_str *sp_var;
 	char c[2] = {0};
 
+	if (!format)
+		return (-1);
+
 	va_start(args, format);
-	
-	if (!format || (format[0] == '%' && !format[1]))
-		return (-1);
-	
-	if (format[0] == '%' && format[1] == ' ' && !format[2])
-		return (-1);
-	
-	while (format && format[i])
+
+	while (format[i] && format)
 	{
 		if (format[i] == '%')
 		{
