@@ -8,6 +8,9 @@
 char *print_char(va_list arg)
 {
 	char c = (char) va_arg(arg, int);
+	
+	if (!c)
+		c = '\0';
 	char *str = malloc(sizeof(*str) + 1);
 
 	if (!str)
