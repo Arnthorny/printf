@@ -31,11 +31,7 @@ char *print_char(va_list arg)
 char *print_string(va_list arg)
 {
 	char *str = va_arg(arg, char*);
-	char *strC;
-
-	if (!str)
-		str = "(null)";
-	strC = malloc(sizeof(*strC) * (strlen(str) + 1));
+	char *strC = malloc(sizeof(*strC) * (strlen(str) + 1));
 
 	if (!strC)
 		return (NULL);
