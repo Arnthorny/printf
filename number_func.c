@@ -21,7 +21,7 @@ char *print_int(va_list arg)
  */
 char *print_bin(va_list arg)
 {
-	int num = va_arg(arg, int);
+	unsigned int num = va_arg(arg, unsigned int);
 
 	return (conv_base(num, 2));
 }
