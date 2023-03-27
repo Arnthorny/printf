@@ -41,3 +41,24 @@ char *digTostr(long num)
 	}
 	return (str);
 }
+/**
+ * conv_base - convert to required base.
+ * @num: number in base 10
+ * @base: new base
+ *
+ * Return: New number
+ */
+char *conv_base(unsigned long num, unsigned long base)
+{
+	char base_case[] = "0123456789ABCDEF";
+	int len = count_digits(num, base);
+	char *result = malloc(len + 1);
+
+	result[len] = '\0';
+	while (len)
+	{
+		result[--len] = base_case[num % base];
+		num /= base;
+	}
+	return (result);
+}
