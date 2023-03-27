@@ -44,5 +44,8 @@ specifier_func ret_func(int i);
 char *print_char(va_list arg);
 char *print_string(va_list arg);
 char *print_percent(__attribute__((unused))va_list arg);
+int count_digits(long num, long base);
+char *digTostr(long num);
+char *print_int(va_list arg);
 
 #endif /* MAIN_H */

@@ -12,6 +12,8 @@ specifier_func ret_func(int i)
 		{'c', print_char},
 		{'s', print_string},
 		{'%', print_percent},
+		{'d', print_int},
+		{'i', print_int},
 		{'\0', NULL},
 	};
 	return (all_spe[i].func);
@@ -25,7 +27,7 @@ specifier_func ret_func(int i)
 
 int isValid(char c)
 {
-	char *valid_specifiers = "cs%";
+	char *valid_specifiers = "cs%di";
 	int i = 0;
 
 	while (valid_specifiers[i])
