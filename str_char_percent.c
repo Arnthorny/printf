@@ -12,11 +12,6 @@ char *print_char(va_list arg)
 
 	if (!str)
 		return (NULL);
-	if (!c)
-	{
-		str[0] = '\0';
-		return (str);
-	}
 	str[0] = c;
 	str[1] = '\0';
 
