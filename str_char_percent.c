@@ -10,6 +10,11 @@ char *print_char(va_list arg)
 	char c = (char) va_arg(arg, int);
 	char *str = malloc(sizeof(*str) + 1);
 
+	if (!c)
+	{
+		str[0] = '\0';
+		return (str);
+	}
 	if (!str)
 		return (NULL);
 	str[0] = c;
@@ -26,8 +31,11 @@ char *print_char(va_list arg)
 char *print_string(va_list arg)
 {
 	char *str = va_arg(arg, char*);
-	char *strC = malloc(sizeof(*strC) * (strlen(str) + 1));
+	char *strC;
 
+	str = str ? str : "(null)";
+
+	strC = malloc(sizeof(*strC) * (strlen(str) + 1));
 	if (!strC)
 		return (NULL);
 	strC = strcpy(strC, str);
