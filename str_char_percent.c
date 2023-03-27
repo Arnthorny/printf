@@ -8,14 +8,15 @@
 char *print_char(va_list arg)
 {
 	char c = (char) va_arg(arg, int);
-	char *str;
-
-	if (!c)
-		c = '\0';
-	str = malloc(sizeof(*str) + 1);
+	char *str = malloc(sizeof(*str) + 1);
 
 	if (!str)
 		return (NULL);
+	if (!c)
+	{
+		str[0] = '\0';
+		return (str);
+	}
 	str[0] = c;
 	str[1] = '\0';
 
