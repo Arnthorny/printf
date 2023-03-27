@@ -31,7 +31,7 @@ char *digTostr(long num)
 		return (NULL);
 
 	str[lenStr--] = '\0';
-	str[0] = num >= 0 ? 0 : '-';
+	str[0] = num >= 0 ? '0' : '-';
 	num = num >= 0 ? num : -(num);
 
 	while (num)
