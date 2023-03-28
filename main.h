@@ -55,7 +55,7 @@ char *print_oct(va_list arg);
 char *print_hex(va_list arg);
 char *print_HEX(va_list arg);
 char *print_u_int(va_list arg);
-char * check_buffer(char *buffer, char *str);
+void check_buffer(char *buffer, char *str);
 char *print_rot13(va_list arg);
 char *rot13(char *s);
 char *print_custom_string(va_list args);

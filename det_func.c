@@ -98,26 +98,16 @@ var_str *check_sp(const char *format, va_list args)
  * check_buffer - checks to see if there enough space in buffer
  * @buffer: Buffer
  * @str: New string
- *
- * Return: Something.
  */
-char *check_buffer(char *buffer, char *str)
+void check_buffer(char *buffer, char *str)
 {
 	int buf_len = strlen(buffer);
 	int str_len = strlen(str);
-	int n = BUF_SIZE - buf_len, i = 0;
-
+	
 	if (buf_len + str_len > BUF_SIZE)
 	{
-		strncat(buffer, str, n);
 		write(1, buffer, buf_len);
-		free(buffer);
-		buffer = malloc(BUF_SIZE);
-		while (str[n])
-		{
-			buffer[i++] = str[n++];
-		}
-		return (buffer);
+		buffer[0] = 0;
 	}
-	return (strcat(buffer, str));
+	strcat(buffer, str);
 }

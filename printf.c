@@ -10,7 +10,7 @@ int _printf(const char *format, ...)
 	va_list args;
 	int i = 0, size = 0;
 	var_str *sp_var;
-	char c[2] = {0};
+	char c[2] = {0}, buffer[BUF_SIZE] = {0};
 
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
@@ -23,7 +23,7 @@ int _printf(const char *format, ...)
 			sp_var = check_sp(&format[i], args);
 			if (sp_var && sp_var->string)
 			{
-				write(1, sp_var->string, strlen(sp_var->string));
+				check_buffer(buffer, sp_var->string);
 				size += strlen(sp_var->string);
 				i += (sp_var->i + 1);
 				free(sp_var->string);
@@ -32,10 +32,11 @@ int _printf(const char *format, ...)
 			}
 		}
 		c[0] = format[i];
-		write(1, c, 1);
+		check_buffer(buffer, c);
 		size++;
 		i++;
 	}
 	va_end(args);
+	write(1, buffer, strlen(buffer));
 	return (size);
 }
