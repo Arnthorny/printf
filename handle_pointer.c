@@ -25,7 +25,7 @@ char *custom_hex(size_t value)
 {
 
 	int lenVal, i;
-	char *str, *val_hex, *pad = "0x", *null_val = "(null)";
+	char *str, *val_hex, *pad = "0x", *null_val = "(nil)";
 
 	if (value)
 	{
