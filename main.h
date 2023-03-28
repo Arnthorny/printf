@@ -65,4 +65,6 @@ char *print_pointer(va_list args);
 int c_count_dig(size_t num, size_t base);
 char *rev_string(char *s);
 char *print_rev_string(va_list arg);
+int isValid(char c);
+
 #endif /* _MAIN_H_ */
