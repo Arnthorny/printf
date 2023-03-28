@@ -21,3 +21,27 @@ char *print_hex(va_list arg)
 	}
 	return (str);
 }
+
+/**
+ * print_rot13 -  Handles %R
+ * @arg: variadic argument
+ *
+ * Return: pointer to a string
+ */
+char *print_rot13(va_list arg)
+{	
+	char *str = va_arg(arg, char *);
+	char *strC, *rev_str;
+
+	str = str ? str : "";
+
+	strC = malloc(sizeof(*strC) * (strlen(str) + 1));
+	if (!strC)
+		return (NULL);
+	
+	rev_str = rot13(str);
+	strcpy(strC, rev_str);
+	return (strC);
+
+}
+
