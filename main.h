@@ -63,5 +63,6 @@ unsigned char *c_strcat(unsigned char *dest, unsigned char *src);
 int c_strlen(unsigned char *s);
 char *print_pointer(va_list args);
 int c_count_dig(size_t num, size_t base);
-
+char *rev_string(char *s);
+char *print_rev_string(va_list arg);
 #endif /* _MAIN_H_ */
