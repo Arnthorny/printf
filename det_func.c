@@ -101,7 +101,9 @@ void check_buffer(char *buffer, char *str)
 {
 	if (strlen(buffer) + strlen(str) > BUF_SIZE)
 	{
-		strncat(buffer, str, BUF_SIZE - strlen(buffer));
+		write(1, buffer, strlen(buffer));
+		free(buffer);
+		strcat(buffer, str);
 	}
 	strcat(buffer, str);
 }
