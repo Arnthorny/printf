@@ -21,6 +21,7 @@ specifier_func ret_func(int i)
 		{'X', print_HEX},
 		{'R', print_rot13},
 		{'S', print_custom_string},
+		{'p', print_pointer},
 		{'\0', NULL},
 	};
 	return (all_spe[i].func);
@@ -34,7 +35,7 @@ specifier_func ret_func(int i)
 
 int isValid(char c)
 {
-	char *valid_specifiers = "cs%dibuoxXRS";
+	char *valid_specifiers = "cs%dibuoxXRSp";
 	int i = 0;
 
 	while (valid_specifiers[i])

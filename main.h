@@ -61,6 +61,6 @@ char *rot13(char *s);
 char *print_custom_string(va_list args);
 unsigned char *c_strcat(unsigned char *dest, unsigned char *src);
 int c_strlen(unsigned char *s);
-
+char *print_pointer(va_list args);
 
 #endif /* _MAIN_H_ */
