@@ -49,5 +49,9 @@ char *digTostr(long num);
 char *print_int(va_list arg);
 char *conv_base(unsigned long num, unsigned long base);
 char *print_bin(va_list arg);
+char *print_oct(va_list arg);
+char *print_hex(va_list arg);
+char *print_HEX(va_list arg);
+char *print_u_int(va_list arg);
 
 #endif /* MAIN_H */

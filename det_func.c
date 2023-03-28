@@ -15,6 +15,10 @@ specifier_func ret_func(int i)
 		{'d', print_int},
 		{'i', print_int},
 		{'b', print_bin},
+		{'u', print_u_int},
+		{'o', print_oct},
+		{'x', print_hex},
+		{'X', print_HEX},
 		{'\0', NULL},
 	};
 	return (all_spe[i].func);
@@ -28,7 +32,7 @@ specifier_func ret_func(int i)
 
 int isValid(char c)
 {
-	char *valid_specifiers = "cs%dib";
+	char *valid_specifiers = "cs%dibuoxX";
 	int i = 0;
 
 	while (valid_specifiers[i])
