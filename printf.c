@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 	var_str *sp_var;
 	char c[2] = {0}, buffer[BUF_SIZE] = {0};
 
-	if (!format || (format[0] == '%' && isValid(format[1]) == -1))
+	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
 	/**
 	*if (format[0] == '%' && format[1] == ' ' && !format[2])
