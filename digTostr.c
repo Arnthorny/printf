@@ -71,24 +71,34 @@ char *conv_base(unsigned long num, unsigned long base)
 char *rot13(char *s)
 {
 	int i, j;
-	char *str = malloc(strlen(s));
+	char *str, *sC;
 	char a[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char b[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	i = 0;
-	while (s[i] != '\0')
+	sC = s ? s : "(null)";
+	str = malloc(sizeof(*str) * (strlen(sC) + 1));
+
+	if (!str)
+		return (NULL);
+	if (s)
 	{
-		j = 0;
-		while (a[j] != '\0')
+		i = 0;
+		while (s[i] != '\0')
 		{
-			if (s[i] == a[j])
+			j = 0;
+			while (a[j] != '\0')
 			{
-				str[i] = b[j];
-				break;
+				if (s[i] == a[j])
+				{
+					str[i] = b[j];
+					break;
+				}
+				j++;
 			}
-			j++;
+			i++;
 		}
-		i++;
 	}
+	else
+		strcpy(str, sC);
 	return (str);
-}
+	}

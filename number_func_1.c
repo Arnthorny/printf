@@ -31,17 +31,15 @@ char *print_hex(va_list arg)
 char *print_rot13(va_list arg)
 {
 	char *str = va_arg(arg, char *);
-	char *strC, *rev_str;
+	char *rot_str;
 
-	str = str ? str : "(null)";
-
-	strC = malloc(sizeof(*strC) * (strlen(str) + 1));
+	/**
+	*strC = malloc(sizeof(*strC) * (strlen(str) + 1));
 	if (!strC)
 		return (NULL);
-
-	rev_str = rot13(str);
-	strcpy(strC, rev_str);
-	return (strC);
+	*/
+	rot_str = rot13(str);
+	return (rot_str);
 
 }
 

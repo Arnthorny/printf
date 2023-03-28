@@ -103,7 +103,7 @@ void check_buffer(char *buffer, char *str)
 {
 	int buf_len = strlen(buffer);
 	int str_len = strlen(str);
-	
+
 	if (buf_len + str_len > BUF_SIZE)
 	{
 		write(1, buffer, buf_len);
