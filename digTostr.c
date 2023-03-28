@@ -103,4 +103,33 @@ char *rot13(char *s)
 	else
 		strcpy(str, sC);
 	return (str);
+}
+/**
+ * rev_string - Reverses a string
+ * @s: pointer to string
+ * Return: Reversed string.
+ */
+char *rev_string(char *s)
+{
+	char *sC, *str;
+	int i = 0, len;
+
+	sC = s ? s : "(null)";
+	str = malloc(sizeof(*str) * (strlen(sC) + 1));
+
+	if (!str)
+		return (NULL);
+	len = strlen(sC);
+	if (s)
+	{
+		while(s[i])
+		{
+			str[len - 1 - i] = s[i];
+			i++;
+		}
+		str[i] = '\0';
 	}
+	else 
+		strcpy(str, sC);
+	return (str);
+}

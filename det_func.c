@@ -22,6 +22,7 @@ specifier_func ret_func(int i)
 		{'R', print_rot13},
 		{'S', print_custom_string},
 		{'p', print_pointer},
+		{'r', print_rev_string},
 		{'\0', NULL},
 	};
 	return (all_spe[i].func);
@@ -35,7 +36,7 @@ specifier_func ret_func(int i)
 
 int isValid(char c)
 {
-	char *valid_specifiers = "cs%dibuoxXRSp";
+	char *valid_specifiers = "cs%dibuoxXRSpr";
 	int i = 0;
 
 	while (valid_specifiers[i])
