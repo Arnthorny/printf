@@ -10,6 +10,11 @@ char *print_char(va_list arg)
 	char c = (char) va_arg(arg, int);
 	char *str = malloc(sizeof(*str) + 1);
 
+	if (!c)
+	{
+		str[0] = '\0';
+		return (str);
+	}
 	if (!str)
 		return (NULL);
 	str[0] = c;
