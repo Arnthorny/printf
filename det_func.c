@@ -99,13 +99,14 @@ var_str *check_sp(const char *format, va_list args)
  * write_buffer - checks to see if there enough space in buffer
  * @buffer: Buffer
  * @str: New string
+ * Return: number of bytes written to stdout.
  */
 int write_buffer(char *buffer, char *str)
 {
 	int buf_len = strlen(buffer);
 	int str_len = strlen(str), size = 0;
 
-	if (buf_len + str_len > BUF_SIZE)
+	if (buf_len + str_len >= BUF_SIZE)
 	{
 		size = write(1, buffer, buf_len);
 		buffer[0] = 0;
