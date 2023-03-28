@@ -77,7 +77,8 @@ unsigned char *_customS(int ascii)
 }
 
 /**
-  *_handleS - A function to conv vrdic string to a custom string given %S.
+  *print_custom_string - A function to conv vrdic
+  *string to a custom string given %S.
   *@args: Variadic list.
   *Return: Pointer to string.
   */
