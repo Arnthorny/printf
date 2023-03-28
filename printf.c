@@ -10,10 +10,7 @@ int _printf(const char *format, ...)
 	va_list args;
 	int i = 0, size = 0;
 	var_str *sp_var;
-	char c[2] = {0}, *buffer = malloc(BUF_SIZE);
-
-	if (!buffer)
-		return (-1);
+	char c[2] = {0}, buffer[BUF_SIZE] = {0};
 
 	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);

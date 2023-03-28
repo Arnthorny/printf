@@ -99,11 +99,19 @@ var_str *check_sp(const char *format, va_list args)
  */
 void check_buffer(char *buffer, char *str)
 {
-	if (strlen(buffer) + strlen(str) > BUF_SIZE)
+	int buf_len = strlen(buffer);
+	int str_len = strlen(str);
+	int n = BUF_SIZE - buf_len, i = 0;
+
+	if (buf_len + str_len > BUF_SIZE)
 	{
-		write(1, buffer, strlen(buffer));
-		free(buffer);
-		strcat(buffer, str);
+		strncat(buffer, str, n);
+		buffer = {0};
+
+		while (str[n])
+		{
+			buffer[i++] = str[n++];
+		}
 	}
 	strcat(buffer, str);
 }
