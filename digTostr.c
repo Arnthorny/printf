@@ -93,6 +93,8 @@ char *rot13(char *s)
 					str[i] = b[j];
 					break;
 				}
+				else
+					str[i] = s[i];
 				j++;
 			}
 			i++;
