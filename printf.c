@@ -23,8 +23,7 @@ int _printf(const char *format, ...)
 			sp_var = check_sp(&format[i], args);
 			if (sp_var && sp_var->string)
 			{
-				check_buffer(buffer, sp_var->string);
-				size += strlen(sp_var->string);
+				size += write_buffer(buffer, sp_var->string);
 				i += (sp_var->i + 1);
 				free(sp_var->string);
 				free(sp_var);
@@ -32,11 +31,10 @@ int _printf(const char *format, ...)
 			}
 		}
 		c[0] = format[i];
-		check_buffer(buffer, c);
-		size++;
+		size += write_buffer(buffer, c);
 		i++;
 	}
 	va_end(args);
-	write(1, buffer, strlen(buffer));
+	size += write(1, buffer, strlen(buffer));
 	return (size);
 }
