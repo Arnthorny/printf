@@ -92,3 +92,16 @@ var_str *check_sp(const char *format, va_list args)
 	return (NULL);
 	*/
 }
+/**
+ * check_buffer - checks to see if there enough space in buffer
+ * @buffer: Buffer
+ * @str: New string
+ */
+void check_buffer(char *buffer, char *str)
+{
+	if (strlen(buffer) + strlen(str) > BUF_SIZE)
+	{
+		strncat(buffer, str, BUF_SIZE - strlen(buffer));
+	}
+	strcat(buffer, str);
+}
