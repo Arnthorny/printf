@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <limits.h>
 /**
  * count_digits - Count the number of digits in the base required
  * @num: The number
@@ -48,10 +48,10 @@ char *digTostr(long num)
  *
  * Return: New number
  */
-char *conv_base(unsigned long num, unsigned long base)
+char *conv_base(size_t num, size_t base)
 {
 	char base_case[] = "0123456789ABCDEF";
-	int len = count_digits(num, base);
+	int len = num < ULONG_MAX ? count_digits(num, base) : c_count_dig(num, base);
 	char *result = malloc(len + 1);
 
 	result[len] = '\0';

@@ -3,16 +3,16 @@
 #include "main.h"
 
 /**
- * c_count_digits - Count the number of digits in unsigned
+ * c_count_dig - Count the number of digits in unsigned
  * number in the base required
  * @num: The number
  * @base: Required base
  *
  * Return: Number of digits.
  */
-int c_count_digits(size_t num, size_t base)
+int c_count_dig(size_t num, size_t base)
 {
-	return (num < base ? 1 : 1 + count_digits(num / base, base));
+	return (num < base ? 1 : 1 + c_count_dig(num / base, base));
 }
 
 /**
@@ -29,7 +29,7 @@ char *custom_hex(size_t value)
 
 	if (value)
 	{
-		lenVal = c_count_digits(value, 16);
+		lenVal = c_count_dig(value, 16);
 		val_hex =  conv_base(value, 16);
 
 		str = malloc(sizeof(*str) * (lenVal + strlen(pad) + 1));
@@ -78,4 +78,3 @@ char *print_pointer(va_list args)
 	return (str);
 
 }
-

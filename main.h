@@ -49,7 +49,7 @@ char *print_percent(__attribute__((unused))va_list arg);
 int count_digits(long num, long base);
 char *digTostr(long num);
 char *print_int(va_list arg);
-char *conv_base(unsigned long num, unsigned long base);
+char *conv_base(size_t num, size_t base);
 char *print_bin(va_list arg);
 char *print_oct(va_list arg);
 char *print_hex(va_list arg);
@@ -62,5 +62,6 @@ char *print_custom_string(va_list args);
 unsigned char *c_strcat(unsigned char *dest, unsigned char *src);
 int c_strlen(unsigned char *s);
 char *print_pointer(va_list args);
+int c_count_dig(size_t num, size_t base);
 
 #endif /* _MAIN_H_ */
