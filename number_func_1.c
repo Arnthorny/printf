@@ -29,16 +29,16 @@ char *print_hex(va_list arg)
  * Return: pointer to a string
  */
 char *print_rot13(va_list arg)
-{	
+{
 	char *str = va_arg(arg, char *);
 	char *strC, *rev_str;
 
-	str = str ? str : "";
+	str = str ? str : "(null)";
 
 	strC = malloc(sizeof(*strC) * (strlen(str) + 1));
 	if (!strC)
 		return (NULL);
-	
+
 	rev_str = rot13(str);
 	strcpy(strC, rev_str);
 	return (strC);
