@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef _MAIN_H_
+#define _MAIN_H_
 
 #include <string.h>
 #include <stdarg.h>
@@ -7,7 +7,9 @@
 #include <unistd.h>
 #include <stdarg.h>
 
+#ifndef BUF_SIZE
 #define BUF_SIZE 1024
+#endif /* BUF_SIZE */
 
 typedef char* (*specifier_func)(va_list);
 
@@ -49,5 +51,10 @@ char *digTostr(long num);
 char *print_int(va_list arg);
 char *conv_base(unsigned long num, unsigned long base);
 char *print_bin(va_list arg);
+char *print_oct(va_list arg);
+char *print_hex(va_list arg);
+char *print_HEX(va_list arg);
+char *print_u_int(va_list arg);
+void check_buffer(char *buffer, char *str);
 
-#endif /* MAIN_H */
+#endif /* _MAIN_H_ */

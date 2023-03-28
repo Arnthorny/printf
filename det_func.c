@@ -15,6 +15,10 @@ specifier_func ret_func(int i)
 		{'d', print_int},
 		{'i', print_int},
 		{'b', print_bin},
+		{'u', print_u_int},
+		{'o', print_oct},
+		{'x', print_hex},
+		{'X', print_HEX},
 		{'\0', NULL},
 	};
 	return (all_spe[i].func);
@@ -28,7 +32,7 @@ specifier_func ret_func(int i)
 
 int isValid(char c)
 {
-	char *valid_specifiers = "cs%dib";
+	char *valid_specifiers = "cs%dibuoxX";
 	int i = 0;
 
 	while (valid_specifiers[i])
@@ -87,4 +91,27 @@ var_str *check_sp(const char *format, va_list args)
 	}
 	return (NULL);
 	*/
+}
+/**
+ * check_buffer - checks to see if there enough space in buffer
+ * @buffer: Buffer
+ * @str: New string
+ */
+void check_buffer(char *buffer, char *str)
+{
+	int buf_len = strlen(buffer);
+	int str_len = strlen(str);
+	int n = BUF_SIZE - buf_len, i = 0;
+
+	if (buf_len + str_len > BUF_SIZE)
+	{
+		strncat(buffer, str, n);
+		buffer = {0};
+
+		while (str[n])
+		{
+			buffer[i++] = str[n++];
+		}
+	}
+	strcat(buffer, str);
 }
