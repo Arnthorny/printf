@@ -44,9 +44,8 @@ char *print_rot13(va_list arg)
 }
 
 /**
- * print_rev_string Handles %r
+ * print_rev_string - Handles %r
  * @arg: variadic argument
- *
  * Return: pointer to a string
  */
 char *print_rev_string(va_list arg)
