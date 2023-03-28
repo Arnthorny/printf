@@ -122,14 +122,14 @@ char *rev_string(char *s)
 	len = strlen(sC);
 	if (s)
 	{
-		while(s[i])
+		while (s[i])
 		{
 			str[len - 1 - i] = s[i];
 			i++;
 		}
 		str[i] = '\0';
 	}
-	else 
+	else
 		strcpy(str, sC);
 	return (str);
 }
