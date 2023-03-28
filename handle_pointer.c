@@ -24,27 +24,39 @@ int c_count_digits(size_t num, size_t base)
 char *custom_hex(size_t value)
 {
 
-	int lenVal = c_count_digits(value, 16), i;
-	char *str;
-	char *val_hex = conv_base(value, 16);
-	char *pad = "0x";
+	int lenVal, i;
+	char *str, *val_hex, *pad = "0x", *null_val = "(null)";
 
-	str = malloc(sizeof(*str) * (lenVal + strlen(pad) + 1));
-	if (!str)
-		return (NULL);
-
-	for (i = 0; val_hex[i]; i++)
+	if (value)
 	{
-		if (val_hex[i] >= 'A' && val_hex[i] <= 'F')
-			val_hex[i] = val_hex[i] + 32;
+		lenVal = c_count_digits(value, 16);
+		val_hex =  conv_base(value, 16);
+
+		str = malloc(sizeof(*str) * (lenVal + strlen(pad) + 1));
+		if (!str)
+			return (NULL);
+
+		for (i = 0; val_hex[i]; i++)
+		{
+			if (val_hex[i] >= 'A' && val_hex[i] <= 'F')
+				val_hex[i] = val_hex[i] + 32;
+		}
+
+		str[0] = '\0';
+
+		str = strcat(str, pad);
+		str = strcat(str, val_hex);
+
+		free(val_hex);
 	}
-
-	str[0] = '\0';
-
-	str = strcat(str, pad);
-	str = strcat(str, val_hex);
-
-	free(val_hex);
+	else
+	{
+		str = malloc(sizeof(*str) * (strlen(null_val) + 1));
+		if (!str)
+			return (NULL);
+		str[0] = '\0';
+		strcpy(str, null_val);
+	}
 	return (str);
 }
 
@@ -66,3 +78,4 @@ char *print_pointer(va_list args)
 	return (str);
 
 }
+
