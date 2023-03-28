@@ -12,8 +12,7 @@ specifier_func ret_func(int i)
 		{'c', print_char},
 		{'s', print_string},
 		{'%', print_percent},
-		/*
-		*{'d', print_int},
+		{'d', print_int},
 		{'i', print_int},
 		{'b', print_bin},
 		{'u', print_u_int},
@@ -23,7 +22,6 @@ specifier_func ret_func(int i)
 		{'R', print_rot13},
 		{'S', print_custom_string},
 		{'p', print_pointer},
-		*/
 		{'\0', NULL},
 	};
 	return (all_spe[i].func);
